@@ -6,17 +6,27 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "postinstall": "node node_modules/.bin/rn-nodeify --install crypto --hack"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
+    "@react-native-async-storage/async-storage": "^1.18.2",
+    "@walletconnect/react-native-dapp": "^1.8.0",
+    "crypto": "^1.0.1",
     "expo": "~48.0.18",
+    "expo-crypto-polyfills": "^1.1.0",
+    "expo-linear-gradient": "~12.1.2",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
-    "expo-linear-gradient": "~12.1.2"
+    "react-native-crypto": "^2.2.0",
+    "react-native-dropdown-picker": "^5.4.6",
+    "react-native-get-random-values": "~1.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "rn-nodeify": "^10.3.0"
   },
   "private": true
 }
