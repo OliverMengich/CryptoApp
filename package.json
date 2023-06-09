@@ -7,12 +7,15 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "postinstall": "node node_modules/.bin/rn-nodeify --install crypto --hack"
+    "postinstall": "rn-nodeify --hack --install process,crypto,events,constant,console,stream,url,util"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "^1.18.2",
+    "@walletconnect/client": "^1.8.0",
     "@walletconnect/react-native-dapp": "^1.8.0",
+    "bitcore-lib": "^10.0.5",
+    "console-browserify": "^1.1.0",
     "crypto": "^1.0.1",
     "expo": "~48.0.18",
     "expo-crypto-polyfills": "^1.1.0",
@@ -22,11 +25,36 @@
     "react-native": "0.71.8",
     "react-native-crypto": "^2.2.0",
     "react-native-dropdown-picker": "^5.4.6",
-    "react-native-get-random-values": "~1.8.0"
+    "react-native-element-dropdown": "^2.9.0",
+    "react-native-get-random-values": "~1.8.0",
+    "react-native-randombytes": "^3.6.1",
+    "readable-stream": "^1.0.33",
+    "stream-browserify": "^1.0.0",
+    "url": "^0.10.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "rn-nodeify": "^10.3.0"
+    "rn-nodeify": "github:tradle/rn-nodeify"
   },
-  "private": true
+  "private": true,
+  "react-native": {
+    "console": "console-browserify",
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
+  },
+  "browser": {
+    "console": "console-browserify",
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
+  }
 }
