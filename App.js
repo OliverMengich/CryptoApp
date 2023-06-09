@@ -1,16 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import './global'
-import { StyleSheet, ImageBackground,SafeAreaView, Platform } from 'react-native';
+import './global';
+import crypto from 'crypto';
+import { StyleSheet, ImageBackground,SafeAreaView, Platform,View } from 'react-native';
 import Button from './components/Button';
 import React, { useState } from 'react';
-// import AuthPage from './screens/AuthPage';
+import AuthPage from './screens/AuthPage';
 import MainPage from './screens/MainPage';
 import WalletConnectProvider from "@walletconnect/react-native-dapp";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+const SCHEME_FROM_APP_JSON = "walletconnect-example";
+import WalletConnectExperience from './components/WalletConnectExperience';
+import { useWalletConnect } from "@walletconnect/react-native-dapp";
 export default function App() {
-	const [currentAccount, setCurrentAccount] = useState("");
-	// let screen = <AuthPage/>;
-
+	let screen = <MainPage/>;
 	return (
 		<>
 			<StatusBar style="dark" />
@@ -27,8 +29,9 @@ export default function App() {
 						}}
 						>
 						<View style={styles.container}>
-							<WalletConnectExperience />
-							<StatusBar style="auto" />
+							{/* <StatusBar style="auto" /> */}
+							{screen}
+							{/* <WalletConnectExperience functionStateHandler={functionStateHandler} /> */}
 						</View>
 					</WalletConnectProvider>
 				</SafeAreaView>

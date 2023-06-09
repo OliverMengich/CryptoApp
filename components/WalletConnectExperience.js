@@ -3,31 +3,31 @@ import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useWalletConnect } from "@walletconnect/react-native-dapp";
 
 const shortenAddress = (address) => {
-  return `${address.slice(0, 6)}...${address.slice(
-    address.length - 4,
-    address.length
-  )}`;
+	return `${address.slice(0, 6)}...${address.slice(
+		address.length - 4,
+		address.length
+	)}`;
 };
 
 function Button({ onPress, label }) {
-  return (
-    <TouchableOpacity onPress={onPress} style={styles.button}>
-      <Text style={styles.text}>{label}</Text>
-    </TouchableOpacity>
-  );
+	return (
+		<TouchableOpacity onPress={onPress} style={styles.button}>
+			<Text style={styles.text}>{label}</Text>
+		</TouchableOpacity>
+	);
 }
 
-export default function WalletConnectExperience() {
+export default function WalletConnectExperience({functionStateHandler}) {
     const connector = useWalletConnect();
 
-    const connectWallet = React.useCallback(() => {
+    const connectWallet =() => {
         return connector.connect();
-    }, [connector]);
+    };
 
-    const killSession = React.useCallback(() => {
+    const killSession =() => {
         return connector.killSession();
-    }, [connector]);
-
+    };
+    console.log('Connector is:',connector)
     return (
         <>
         {!connector.connected ? (
